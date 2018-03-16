@@ -35,13 +35,13 @@ type Post struct {
     Id    int
     Title string
     User  *User  `orm:"rel(fk)"`	//设置一对多关系
-    Tags  []*Tag `orm:"rel(m2m)"`
+    Tags  []*Tag `orm:"rel(m2m)"`	//设置多对多关系
 }
 
 type Tag struct {
     Id    int
     Name  string
-    Posts []*Post `orm:"reverse(many)"`
+    Posts []*Post `orm:"reverse(many)"`    //设置多对多反向关系（可选）
 }
 
 func init() {
